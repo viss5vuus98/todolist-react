@@ -11,8 +11,6 @@ const TodoPage = () => {
   const navigate = useNavigate();
   const { isAuthenticated, currentMember } = useAuth();
 
-  const todoNums = todos.length;
-
   const handleChange = (value) => {
     setInputValue(value);
   };
@@ -138,10 +136,10 @@ const TodoPage = () => {
     const getTodosAsync = async () => {
       try {
         const todos = await getTodos();
-  
+
         setTodos(todos.map((todo) => ({ ...todo, isEdit: false })));
       } catch (error) {
-        console.error (error);
+        console.error(error);
       }
     };
     getTodosAsync();
@@ -169,7 +167,7 @@ const TodoPage = () => {
         onChangeMode={handleChangeMode}
         onDelete={handleDelete}
       />
-      <Footer numOfTodos={todoNums}/>
+      <Footer numOfTodos={todos.length} />
     </div>
   );
 };

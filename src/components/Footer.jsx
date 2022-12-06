@@ -32,14 +32,14 @@ const StyledButton = styled.button`
   }
 `;
 
-const Footer = ({ numOfTodos }) => {
+const Footer = ({ quantity }) => {
   const { logout } = useAuth();
   const handleClick = () => {
     logout();
   };
   return (
     <StyledFooter>
-      <p>剩餘項目數： {numOfTodos}</p>
+      <p>剩餘項目數： {quantity}</p>
       <StyledButton onClick={handleClick}>登出</StyledButton>
     </StyledFooter>
   );
